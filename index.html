@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(207, 241, 241);
+      }
+      h1 {
+        text-align: center;
+      }
+      #container {
+        text-align: center;
+        background-color: rgb(68, 142, 142);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .lb {
+        font-size: 22px;
+        font-weight: bold;
+      }
+      .input {
+        display: inline-block;
+      }
+      .input-val {
+        padding: 5px 10px;
+        margin: 10px;
+        text-align: center;
+        width: 200px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Celsius to Farenheit Converter</h1>
+    <div id="container">
+      <div class="input">
+        <label class="lb">Celsius</label><br />
+        <input class="input-val" type="number" value="0" id="cel" />
+      </div>
+      <div class="input">
+        <label class="lb">Farenheit</label><br />
+        <input class="input-val" type="number" value="32" id="fer" />
+      </div>
+    </div>
+    <script>
+      let inputCel = document.getElementById("cel");
+      let inputFer = document.getElementById("fer");
+      inputCel.addEventListener("input", function () {
+        let c = this.value;
+        let f = (c * 9) / 5 + 32;
+        if (!Number.isInteger(f)) {
+          f = f.toFixed(4);
+        }
+        inputFer.value = f;
+      });
+      inputFer.addEventListener("input", function () {
+        let f = this.value;
+        let c = ((f - 32) * 5) / 9;
+        let cValue = c.toFixed(4);
+        inputCel.value = cValue;
+      });
+    </script>
+  </body>
+</html>
